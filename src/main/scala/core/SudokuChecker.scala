@@ -5,7 +5,7 @@ package object SudokuChecker {
     val validSet = 1 to 9 toSet
 
     def getColumns(board:Vector[Vector[Int]]) : Seq[Seq[Int]] =
-      (1 to 9).map((colNum:Int) => board.map(_(colNum - 1)))
+      (1 to 9).map(colNum => board.map(_(colNum - 1)))
 
     def getSquare(board:Vector[Vector[Int]], top:Int, left:Int) : Seq[Int] =
       for(row <- top to top + 3;
