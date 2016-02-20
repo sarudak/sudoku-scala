@@ -56,4 +56,20 @@ class SudokuCheckerSpec extends FlatSpec with Matchers{
       SudokuChecker.IsComplete(columnDupeBoard) should be (false)
     }
 
+  val squareDupeBoard = Vector(
+    Vector(1, 2, 3, 4, 5, 6, 7, 8, 9),
+    Vector(2, 3, 4, 5, 6, 7, 8, 9, 1),
+    Vector(3, 4, 5, 6, 7, 8, 9, 1, 2),
+    Vector(4, 5, 6, 7, 8, 9, 1, 2, 3),
+    Vector(5, 6, 7, 8, 9, 1, 2, 3, 4),
+    Vector(6, 7, 8, 9, 1, 2, 3, 4, 5),
+    Vector(7, 8, 9, 1, 2, 3, 4, 5, 6),
+    Vector(8, 9, 1, 2, 3, 4, 5, 6, 7),
+    Vector(9, 1, 2, 3, 4, 5, 6, 7, 8))
+
+  "A board with duplicates in the squares when checked" should "be marked as invalid" in
+    {
+      SudokuChecker.IsComplete(squareDupeBoard) should be (false)
+    }
+
 }
