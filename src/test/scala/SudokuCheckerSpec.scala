@@ -1,8 +1,4 @@
-/**
-  * Created by seth on 2/20/16.
-  */
 import org.scalatest._
-
 
 class SudokuCheckerSpec extends FlatSpec with Matchers{
 
@@ -21,8 +17,6 @@ class SudokuCheckerSpec extends FlatSpec with Matchers{
   {
     SudokuChecker.IsComplete(validBoard) should be (true)
   }
-
-
 
   val rowDupeBoard = Vector(
     Vector(1, 2, 3, 1, 2, 3, 1, 2, 3),
@@ -71,5 +65,4 @@ class SudokuCheckerSpec extends FlatSpec with Matchers{
     {
       SudokuChecker.IsComplete(squareDupeBoard) should be (false)
     }
-
 }
