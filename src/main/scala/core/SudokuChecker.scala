@@ -1,4 +1,6 @@
-package object SudokuChecker {
+package core
+
+object SudokuChecker {
     val validSet = 1 to 9 toSet
 
     def IsComplete(board:Vector[Vector[Int]]) : Boolean = {

@@ -1,4 +1,7 @@
+package core
+
 import org.scalatest._
+import core.SudokuChecker
 
 class SudokuCheckerSpec extends FlatSpec with Matchers{
 
