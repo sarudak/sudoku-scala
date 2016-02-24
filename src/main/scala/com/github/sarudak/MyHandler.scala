@@ -43,19 +43,10 @@ class MyHandler extends ScalatrafreshStack with JacksonJsonSupport{
 
   post("/check-board")
   {
-
     val input = parsedBody.extract[Seq[Seq[Int]]]
     val asVectors = input.map((row:Seq[Int]) => row.toVector).toVector
     SudokuChecker.IsComplete(asVectors)
   }
-
-  post("/get-body")
-  {
-    val theVal = parsedBody.extract[AnInt]
-    new AnotherInt(theVal.value)
-  }
 }
 
-case class AnInt(value: Seq[Int])
-case class AnotherInt(theValue: Seq[Int])
 
