@@ -1,5 +1,7 @@
 package com.github.sarudak
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import core.SudokuChecker
 import org.scalatra._
 import org.json4s.{DefaultFormats, Formats}
 import org.scalatra.json._
@@ -38,5 +40,22 @@ class MyHandler extends ScalatrafreshStack with JacksonJsonSupport{
       Vector(0, 9, 0, 3, 0, 0, 5, 2, 0),
       Vector(0, 0, 2, 4, 0, 0, 6, 0, 0))
   }
+
+  post("/check-board")
+  {
+
+    val input = parsedBody.extract[Seq[Seq[Int]]]
+    val asVectors = input.map((row:Seq[Int]) => row.toVector).toVector
+    SudokuChecker.IsComplete(asVectors)
+  }
+
+  post("/get-body")
+  {
+    val theVal = parsedBody.extract[AnInt]
+    new AnotherInt(theVal.value)
+  }
 }
+
+case class AnInt(value: Seq[Int])
+case class AnotherInt(theValue: Seq[Int])
 

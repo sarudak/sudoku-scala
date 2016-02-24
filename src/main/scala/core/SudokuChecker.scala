@@ -10,15 +10,15 @@ object SudokuChecker {
         getSquares(board).forall(isValidSudokuSet)
     }
 
-    def getColumns(board:Vector[Vector[Int]]) : Seq[Seq[Int]] =
+    private def getColumns(board:Vector[Vector[Int]]) : Seq[Seq[Int]] =
       (1 to 9).map(colNum => board.map(_(colNum - 1)))
 
-    def getSquares(board:Vector[Vector[Int]]) : Seq[Seq[Int]] =
+    private def getSquares(board:Vector[Vector[Int]]) : Seq[Seq[Int]] =
       for(top <- 0 to 2;
           left <- 0 to 2)
         yield getSquare(board, top, left)
 
-    def getSquare(board:Vector[Vector[Int]], top:Int, left:Int) : Seq[Int] =
+    private def getSquare(board:Vector[Vector[Int]], top:Int, left:Int) : Seq[Int] =
       for(row <- top to top + 3;
           column <- left to left + 3)
         yield board(row)(column)
